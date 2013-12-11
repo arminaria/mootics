@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="mootics:ear exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/mootics_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="mootics/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="ejb.jar">
+        <element id="artifact" artifact-name="mootics:ejb exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>

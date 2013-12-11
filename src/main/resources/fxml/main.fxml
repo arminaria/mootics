@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.Pane?>
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="de.tu.berlin.control.MainController">
+    <children>
+        <VBox>
+            <fx:include source="MenuBar.fxml"></fx:include>
+        </VBox>
+        <Pane fx:id="content">
+            <fx:include source="data.fxml"></fx:include>
+        </Pane>
+    </children>
+</VBox>
+
+        <!--
+        <MigPane id="rootPane" fx:controller="de.tu.berlin.HelloController"
+                styleClass="main-panel"
+                layout="insets 20"
+                cols="[label, pref!][grow, 50::]"
+                rows=""
+                xmlns:fx="http://javafx.com/fxml">
+
+            <Label text="First Name:" /> <TextField fx:id="firstNameField" prefColumnCount="30" MigPane.cc="growx, wrap" />
+            <Label text="Last Name:" />	<TextField fx:id="lastNameField" prefColumnCount="30" MigPane.cc="growx, wrap" />
+
+            <Button text="Say Hello" onAction="#sayHello" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
+
+            <Label fx:id="messageLabel" styleClass="hello-message" MigPane.cc="span, growx, gaptop 15" />
+
+        </MigPane >-->

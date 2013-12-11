@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="mootics.control.Controller" fx:id="alertClearDB">
+    <children>
+        <Text layoutX="34" layoutY="40" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Willst du die komplette Datenbank löschen?" wrappingWidth="239"/>
+        <Button layoutX="224.0" layoutY="99.5" mnemonicParsing="false" text="Delete" onAction="#cleardb"/>
+        <Button layoutX="23.5" layoutY="64.5" mnemonicParsing="false" prefHeight="61.0" prefWidth="131.0"
+                text="Cancel" onAction="#closeDialogStage"/>
+    </children>
+</AnchorPane>

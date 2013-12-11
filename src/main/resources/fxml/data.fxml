@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="de.tu.berlin.control.DataController">
+  <children>
+    <BorderPane prefHeight="575.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <AnchorPane prefHeight="42.0" prefWidth="800.0">
+          <children>
+            <Button layoutX="652.0" layoutY="11.0" mnemonicParsing="false" onAction="#readData" prefWidth="118.0" text="reload" />
+          </children>
+        </AnchorPane>
+      </bottom>
+      <center>
+        <TableView fx:id="dataTable" prefHeight="533.0" prefWidth="800.0000999999975">
+          <columns>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="id" fx:id="id" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="128.0" text="time" fx:id="time" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="47.0" text="course" fx:id="course" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="82.0" text="module" fx:id="module" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="98.0" text="cmid" fx:id="cmid" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="90.0" text="action" fx:id="action" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="79.0" text="url" fx:id="urlColumn" />
+            <TableColumn prefWidth="75.0" text="info" fx:id="info" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="135.0" text="created" fx:id="created" />
+          </columns>
+        </TableView>
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>
