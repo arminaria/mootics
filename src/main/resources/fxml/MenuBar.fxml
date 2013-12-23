@@ -13,10 +13,17 @@
                 <MenuItem mnemonicParsing="false" text="Close" onAction="#close"  />
             </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Manage">
+        <Menu mnemonicParsing="false" text="Show">
             <items>
 
                 <MenuItem mnemonicParsing="false" text="Show Data"  onAction="#gotoShowData" />
+                <MenuItem mnemonicParsing="false" text="Show Content" onAction="#gotoContent" />
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Manage">
+            <items>
+
+                <MenuItem mnemonicParsing="false" text="Show Day of Usage"  onAction="#gotoShowDayOfUsage" />
                 <MenuItem mnemonicParsing="false" text="Show Content" onAction="#gotoContent" />
             </items>
         </Menu>

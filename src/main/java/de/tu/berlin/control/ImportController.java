@@ -6,7 +6,6 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -55,7 +54,7 @@ public class ImportController implements Initializable {
             progressBar.setVisible(true);
             progressBar.progressProperty().unbind();
             Stage scene = (Stage) progressBar.getScene().getWindow();
-            dataList = p.parseAll(new File(file.getAbsolutePath()));
+            dataList = p.parseAllData(new File(file.getAbsolutePath()));
             Task worker = createWorker(dataList, scene);
             progressBar.progressProperty().bind(worker.progressProperty());
             new Thread(worker).start();

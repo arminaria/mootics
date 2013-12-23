@@ -2,14 +2,9 @@ package de.tu.berlin.control;
 
 import de.tu.berlin.MainApp;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
@@ -78,5 +73,10 @@ public class Navigation {
             String fxmlFile = "/fxml/importWindow.fxml";
             replaceSceneContent(fxmlFile);
         }
+    }
+
+    public void gotoShowDayOfUsage(ActionEvent actionEvent) {
+        String fxmlFile = "/fxml/dayOfUsage.fxml";
+        replaceSceneContent(fxmlFile);
     }
 }

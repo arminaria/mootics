@@ -18,27 +18,18 @@ import java.util.Calendar;
 })
 public class Data implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
+    @OneToMany
+    private User user;
     @Column
     private Calendar time;
-    @Column
-    private String userId;
-    @Column
-    private Long course;
-    @Column
-    private String module;
-    @ManyToOne
-    private Content cmid;
-
     @Column
     private String action;
     @Column
     private String url;
-    @Column
-    private String info;
-    @Column
-    private Calendar created;
-
+    @ManyToOne
+    private Material material;
 
     public Long getId() {
         return id;
@@ -48,44 +39,20 @@ public class Data implements Serializable {
         this.id = id;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Calendar getTime() {
         return time;
     }
 
     public void setTime(Calendar time) {
         this.time = time;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Long getCourse() {
-        return course;
-    }
-
-    public void setCourse(Long course) {
-        this.course = course;
-    }
-
-    public String getModule() {
-        return module;
-    }
-
-    public void setModule(String module) {
-        this.module = module;
-    }
-
-    public Content getCmid() {
-        return cmid;
-    }
-
-    public void setCmid(Content cmid) {
-        this.cmid = cmid;
     }
 
     public String getAction() {
@@ -104,36 +71,23 @@ public class Data implements Serializable {
         this.url = url;
     }
 
-    public String getInfo() {
-        return info;
+    public Material getMaterial() {
+        return material;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
-    public Calendar getCreated() {
-        return created;
-    }
-
-    public void setCreated(Calendar created) {
-        this.created = created;
+    public void setMaterial(Material material) {
+        this.material = material;
     }
 
     @Override
     public String toString() {
-        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
         return "Data{" +
                 "id=" + id +
-                ", time=" + format1.format(time.getTime()) +
-                ", userId=" + userId +
-                ", course=" + course +
-                ", module='" + module + '\'' +
-                ", cmid=" + cmid +
+                ", user=" + user +
+                ", time=" + time +
                 ", action='" + action + '\'' +
                 ", url='" + url + '\'' +
-                ", info='" + info + '\'' +
-                ", created=" + format1.format(created.getTime()) +
+                ", material=" + material +
                 '}';
     }
 }

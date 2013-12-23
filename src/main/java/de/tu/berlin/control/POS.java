@@ -8,58 +8,34 @@ package de.tu.berlin.control;
  */
 public enum POS {
 
-    id {
+    time {
         @Override
         public int get() {
             return 0;
         }
     },
-    time {
+    userId {
         @Override
         public int get() {
             return 1;
         }
     },
-    userId {
+    action {
         @Override
         public int get() {
             return 2;
         }
     },
-    course {
-        @Override
-        public int get() {
-            return 3;
-        }
-    },
-    module {
-        @Override
-        public int get() {
-            return 4;
-        }
-    },
-    cmid {
-        @Override
-        public int get() {
-            return 5;
-        }
-    },
-    action {
-        @Override
-        public int get() {
-            return 6;
-        }
-    },
     url {
         @Override
         public int get() {
-            return 7;
+            return 2;
         }
     },
     info {
         @Override
         public int get() {
-            return 8;
+            return 3;
         }
     },;
 

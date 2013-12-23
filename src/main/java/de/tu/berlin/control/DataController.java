@@ -1,6 +1,5 @@
 package de.tu.berlin.control;
 
-import de.tu.berlin.model.Content;
 import de.tu.berlin.model.Data;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +13,6 @@ import javafx.util.Callback;
 
 import java.net.URL;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;

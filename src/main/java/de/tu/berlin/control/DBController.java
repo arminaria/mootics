@@ -1,14 +1,14 @@
 package de.tu.berlin.control;
 
-import de.tu.berlin.model.Content;
 import de.tu.berlin.model.Data;
+import de.tu.berlin.model.Material;
+import de.tu.berlin.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.RollbackException;
 import java.util.List;
 
 /**
@@ -16,37 +16,51 @@ import java.util.List;
  */
 public class DBController {
     private static final Logger log = LoggerFactory.getLogger(DBController.class);
+
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("dataPU");
 
-    public void insert(Data d) throws Exception {
+    public void insert(Data d) {
         EntityManager em = emf.createEntityManager();
         Data data = em.find(Data.class, d.getId());
+
         if (data != null) {
             log.info("{} not inserted as its already there", data.getId());
             return;
         }
-        Content cmid = d.getCmid();
 
-        // check if the content is already in the DB
-        em.getTransaction().begin();
-        Content content = em.find(Content.class, cmid.getId());
-        if (content == null) {
-            em.persist(cmid);
-            log.debug("created content {}", cmid);
-        } else {
-            d.setCmid(content);
+        User user = em.find(User.class, d.getUser().getId());
+
+        if(user == null){
+            em.getTransaction().begin();
+            em.persist(user);
+            em.getTransaction().commit();
+            log.debug("USER created: {} ", user);
         }
 
-        em.persist(d);
-        em.getTransaction().commit();
-        log.debug("created data {}", d);
+        Material material = em.find(Material.class, d.getMaterial().getId());
 
+        if(material == null){
+            em.getTransaction().begin();
+            em.persist(material);
+            em.getTransaction().commit();
+            log.debug("MATERIAL created: {} ", material);
+        }
+
+        em.getTransaction().begin();
+        em.persist(data);
+        em.getTransaction().commit();
+
+        log.debug("DB inserted: {}",data);
     }
 
     public List<Data> getAllData(){
         EntityManager em = emf.createEntityManager();
         return em.createQuery("SELECT d from Data d",Data.class).getResultList();
     }
+
+  /*
+
+
 
     public List<Content> getAllContent(){
         EntityManager em = emf.createEntityManager();
@@ -61,5 +75,5 @@ public class DBController {
         c.setName(newValue);
         em.merge(c);
         em.getTransaction().commit();
-    }
+    }*/
 }

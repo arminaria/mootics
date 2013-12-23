@@ -14,5 +14,5 @@ public interface Parser {
 
     public void setSeparator(char separator);
     public char getSeparator();
-    public List<Data> parseAll(File csvFile) throws IOException;
+    public List<Data> parseAllData(File csvFile) throws IOException;
 }

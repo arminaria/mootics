@@ -1,20 +1,8 @@
 package de.tu.berlin.control;
 
-import de.tu.berlin.model.Content;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -23,7 +11,11 @@ import java.util.ResourceBundle;
  * Time: 14:32
  */
 public class ContentController implements Initializable{
-    public TableColumn<Content, Long> id;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+/*    public TableColumn<Content, Long> id;
     public TableView<Content> dataTable;
     public TableColumn<Content, String> name;
 
@@ -56,6 +48,6 @@ public class ContentController implements Initializable{
         data.addAll(allData);
         dataTable.setItems(data);
         dataTable.setEditable(true);
-    }
+    }*/
 
 }
