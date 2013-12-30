@@ -2,48 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b1ab77e-c8c9-47f2-b306-84d91a472e97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_miglayout_miglayout_core_4_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_miglayout_miglayout_core_4_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_miglayout_miglayout_javafx_4_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_miglayout_miglayout_javafx_4_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_api_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_api_6_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_jta_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_jta_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_opencsv_opencsv_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_opencsv_opencsv_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_7_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_7_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_4_0_1_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_4_0_1_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_4_1_4_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_4_1_4_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_4_1_4_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_4_1_4_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_java_persistence_jpa_api_2_0_cr_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_java_persistence_jpa_api_2_0_cr_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_1_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_1_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Draft_16.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Draft_16.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hsqldb_hsqldb_2_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hsqldb_hsqldb_2_3_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_15_0_GA.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_15_0_GA.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_0_GA.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_0_GA.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_1_spec_1_0_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_1_spec_1_0_0_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_6_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_6_2_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_4_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_4_2_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_3_1_4_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_3_1_4_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_asm_3_1_4_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_asm_3_1_4_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_3_1_4_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_3_1_4_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_3_1_4_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_3_1_4_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_3_1_4_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_3_1_4_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_3_1_4_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_3_1_4_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_3_1_4_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_3_1_4_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_3_1_4_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_3_1_4_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_3_1_4_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_3_1_4_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/mootics_ear_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/mootics_ear_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/mootics_ejb_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/mootics_ejb_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\artifacts\mootics_ear_exploded.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\artifacts\mootics_ejb_exploded.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\copyright\profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__antlr_antlr_2_7_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__aopalliance_aopalliance_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__com_miglayout_miglayout_core_4_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__com_miglayout_miglayout_javafx_4_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__commons_lang_commons_lang_2_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__dom4j_dom4j_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__javax_javaee_api_6_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__javax_transaction_jta_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__log4j_log4j_1_2_16.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__net_sf_opencsv_opencsv_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_aspectj_aspectjrt_1_7_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_hibernate_common_hibernate_commons_annotations_4_0_1_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_hibernate_hibernate_core_4_1_4_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_hibernate_hibernate_entitymanager_4_1_4_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_hibernate_java_persistence_jpa_api_2_0_cr_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_1_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Draft_16.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_hsqldb_hsqldb_2_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_javassist_javassist_3_15_0_GA.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_jboss_logging_jboss_logging_3_1_0_GA.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_1_spec_1_0_0_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_slf4j_slf4j_api_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_slf4j_slf4j_log4j12_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_data_spring_data_commons_1_6_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_data_spring_data_jpa_1_4_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_spring_aop_3_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_spring_asm_3_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_spring_beans_3_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_spring_context_3_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_spring_core_3_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_spring_expression_3_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_spring_jdbc_3_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_spring_orm_3_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\libraries\Maven__org_springframework_spring_tx_3_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\scopes\scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\uiDesigner.xml" afterPath="" />
+      <change type="DELETED" beforePath="Y:\Projects\mootics\.idea\workspace.xml" afterPath="" />
     </list>
     <ignored path="mootics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -355,20 +354,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mootics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mootics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mootics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -778,17 +763,21 @@
       <changelist id="2b1ab77e-c8c9-47f2-b306-84d91a472e97" name="Default" comment="" />
       <created>1385549981531</created>
       <updated>1385549981531</updated>
-      <workItem from="1388403645449" duration="386000" />
+      <workItem from="1388403645449" duration="464000" />
     </task>
     <task id="LOCAL-00001" summary="Intellij Dateien aufgeräumt">
       <created>1388404072480</created>
       <updated>1388404072480</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="gitignore hinzugefügt&#10;">
+      <created>1388404109235</created>
+      <updated>1388404109235</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="386000" />
+    <option name="totallyTimeSpent" value="464000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
@@ -844,7 +833,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Intellij Dateien aufgeräumt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Intellij Dateien aufgeräumt" />
+    <MESSAGE value="gitignore hinzugefügt&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore hinzugefügt&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
