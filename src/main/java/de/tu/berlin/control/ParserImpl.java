@@ -42,6 +42,12 @@ public class ParserImpl implements Parser {
         List<Data> dataList = new ArrayList<Data>(strings.size());
 
         for (String[] s : strings) {
+            try {
+                Long.parseLong(s[POS.userId.get()]);
+            } catch (Exception e) {
+                continue;
+            }
+
             Data data = new Data();
 
             // User

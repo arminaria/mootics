@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -18,44 +20,65 @@ public class DBController {
     private static final Logger log = LoggerFactory.getLogger(DBController.class);
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("dataPU");
+    public static EntityManager em;
 
-    public void insert(Data d) {
-        EntityManager em = emf.createEntityManager();
-        Data data = em.find(Data.class, d.getId());
-
-        if (data != null) {
-            log.info("{} not inserted as its already there", data.getId());
-            return;
+    private EntityManager em() {
+        if (em == null) {
+            em = emf.createEntityManager();
         }
+        return em;
+    }
 
+    public void start() {
+        em().getTransaction().begin();
+    }
+
+    public void commit() {
+        em().getTransaction().commit();
+    }
+
+    public void insert(Data d) throws InterruptedException {
         User user = em.find(User.class, d.getUser().getId());
 
         if(user == null){
-            em.getTransaction().begin();
-            em.persist(user);
-            em.getTransaction().commit();
-            log.debug("USER created: {} ", user);
+            em.persist(d.getUser());
+        }else{
+            d.setUser(user);
         }
 
-        Material material = em.find(Material.class, d.getMaterial().getId());
-
+        Material material = em.find(Material.class, d.getMaterial().getName());
         if(material == null){
-            em.getTransaction().begin();
-            em.persist(material);
-            em.getTransaction().commit();
-            log.debug("MATERIAL created: {} ", material);
+            em.persist(d.getMaterial());
+        }else {
+            d.setMaterial(material);
         }
 
-        em.getTransaction().begin();
-        em.persist(data);
-        em.getTransaction().commit();
-
-        log.debug("DB inserted: {}",data);
+        em.persist(d);
     }
 
-    public List<Data> getAllData(){
+    public static void main(String[] args) throws IOException, InterruptedException {
+
+        ParserImpl parser = new ParserImpl();
+        List<Data> datas = parser.parseAllData(new File("C:\\Users\\Armin\\Desktop\\a.csv"));
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dataPU");
+        EntityManager entityManager = emf.createEntityManager();
+
+
+        DBController dbController = new DBController();
+        dbController.start();
+        for (Data data : datas) {
+            dbController.insert(data);
+        }
+        dbController.commit();
+
+        Thread.sleep(2000);
+
+    }
+
+    public List<Data> getAllData() {
         EntityManager em = emf.createEntityManager();
-        return em.createQuery("SELECT d from Data d",Data.class).getResultList();
+        return em.createQuery("d from Data d", Data.class).getResultList();
     }
 
   /*

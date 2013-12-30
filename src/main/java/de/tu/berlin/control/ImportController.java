@@ -1,7 +1,6 @@
 package de.tu.berlin.control;
 
 import de.tu.berlin.model.Data;
-import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -71,18 +70,25 @@ public class ImportController implements Initializable {
             protected Object call() throws Exception {
                 int count = dataList.size();
                 DBController dbController = new DBController();
+                dbController.start();
                 for (int i = 0; i < count; i++) {
                     dbController.insert(dataList.get(i));
                     updateProgress(i + 1, count);
                 }
+                dbController.commit();
 
+                Thread.sleep(2000);
+
+
+                /*
                 Platform.runLater(
                         new Runnable() {
                             public void run() {
-                                stage.close();
+                                new Navigation().gotoMain();
                             }
                         }
                 );
+                */
 
                 return true;
             }

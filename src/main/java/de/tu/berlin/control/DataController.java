@@ -1,6 +1,8 @@
 package de.tu.berlin.control;
 
 import de.tu.berlin.model.Data;
+import de.tu.berlin.model.Material;
+import de.tu.berlin.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,16 +26,13 @@ import java.util.ResourceBundle;
  * Time: 13:10
  */
 public class DataController implements Initializable {
-    public TableColumn<Data, Long> id;
+    public TableColumn<Data, User> userId;
     public TableColumn<Data, Calendar> time;
-    public TableColumn course;
-    public TableColumn module;
-    public TableColumn cmid;
-    public TableColumn action;
-    public TableColumn info;
-    public TableColumn created;
+    public TableColumn<Data, String> action;
+    public TableColumn<Data, String> url;
+    public TableColumn<Data, Material> material;
     public TableView dataTable;
-    public TableColumn urlColumn;
+
     DBController dbController = new DBController();
 
 
@@ -45,19 +44,18 @@ public class DataController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        id.setCellValueFactory(new PropertyValueFactory<Data, Long>("id"));
+    public void initialize(URL u, ResourceBundle resourceBundle) {
+        userId.setCellValueFactory(new PropertyValueFactory<Data, User>("user"));
+        userId.setCellFactory(getUserFormat());
+
         time.setCellValueFactory(new PropertyValueFactory<Data, Calendar>("time"));
         time.setCellFactory(getCalendarFormat());
-        course.setCellValueFactory(new PropertyValueFactory<Data, Long>("course"));
-        module.setCellValueFactory(new PropertyValueFactory<Data, String>("module"));
-        cmid.setCellValueFactory(new PropertyValueFactory<Data, Content>("cmid"));
-        cmid.setCellFactory(getContentFormat());
+
         action.setCellValueFactory(new PropertyValueFactory<Data, String>("action"));
-        urlColumn.setCellValueFactory(new PropertyValueFactory<Data, String>("url"));
-        info.setCellValueFactory(new PropertyValueFactory<Data, String>("info"));
-        created.setCellValueFactory(new PropertyValueFactory<Data, String>("created"));
-        created.setCellFactory(getCalendarFormat());
+
+        url.setCellValueFactory(new PropertyValueFactory<Data, String>("url"));
+        material.setCellValueFactory(new PropertyValueFactory<Data, Material>("material"));
+
     }
 
     Callback<TableColumn<Data, Calendar>, TableCell<Data, Calendar>> getCalendarFormat(){
@@ -84,18 +82,18 @@ public class DataController implements Initializable {
         return callback;
     }
 
-    private Callback<TableColumn<Data, Content>, TableCell<Data, Content>> getContentFormat(){
-        Callback<TableColumn<Data, Content>, TableCell<Data, Content>> callback =
-                new Callback<TableColumn<Data, Content>, TableCell<Data, Content>>() {
+    Callback<TableColumn<Data, User>, TableCell<Data, User>> getUserFormat(){
+        Callback<TableColumn<Data, User>, TableCell<Data, User>> callback =
+                new Callback<TableColumn<Data, User>, TableCell<Data, User>>() {
                     @Override
-                    public TableCell<Data, Content> call(TableColumn<Data, Content> param) {
-                        return new TableCell<Data, Content>() {
+                    public TableCell<Data, User> call(TableColumn<Data, User> param) {
+                        return new TableCell<Data, User>() {
 
                             @Override
-                            protected void updateItem(Content item, boolean empty) {
+                            protected void updateItem(User item, boolean empty) {
                                 super.updateItem(item, empty);
                                 if (!empty) {
-                                    setText(item.getId()+" : "+item.getName());
+                                    setText(String.valueOf(item.getId()));
                                 } else {
                                     setText(null);
                                 }
@@ -105,4 +103,6 @@ public class DataController implements Initializable {
                 };
         return callback;
     }
+
+
 }

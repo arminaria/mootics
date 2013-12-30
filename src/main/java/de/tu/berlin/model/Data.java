@@ -3,7 +3,6 @@ package de.tu.berlin.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -14,13 +13,14 @@ import java.util.Calendar;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "DATA.ALL",
-                query = "SELECT d FROM Data d")
+                query = "d FROM Data d")
 })
 public class Data implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-    @OneToMany
+
+    @ManyToOne
     private User user;
     @Column
     private Calendar time;
