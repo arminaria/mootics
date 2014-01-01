@@ -3,23 +3,23 @@ package de.tu.berlin.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * User: Armin
  * Date: 22.11.13
  * Time: 13:26
  */
-@Entity
-@NamedQueries({
-        @NamedQuery(name = "DATA.ALL",
-                query = "d FROM Data d")
-})
+@Entity@NamedQueries(
+        @NamedQuery(name="Data.Match", query="SELECT d FROM Data d where " +
+                "d.action=:action and d.material=:material and d.time=:time and d.user=:user")
+)
 public class Data implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-
     @ManyToOne
     private User user;
     @Column
@@ -30,6 +30,8 @@ public class Data implements Serializable {
     private String url;
     @ManyToOne
     private Material material;
+    @Transient
+    private Long timeInMillis;
 
     public Long getId() {
         return id;
@@ -79,12 +81,22 @@ public class Data implements Serializable {
         this.material = material;
     }
 
+    public Long getTimeInMillis() {
+        return timeInMillis;
+    }
+
+    public void setTimeInMillis(Long timeInMillis) {
+        this.timeInMillis = timeInMillis;
+    }
+
     @Override
     public String toString() {
+        DateFormat dateInstance = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.GERMAN);
+        DateFormat timeInstance = DateFormat.getTimeInstance(DateFormat.DEFAULT, Locale.GERMAN);
         return "Data{" +
                 "id=" + id +
                 ", user=" + user +
-                ", time=" + time +
+                ", time=" + dateInstance.format(time.getTime()) + " " + timeInstance.format(time.getTime()) +
                 ", action='" + action + '\'' +
                 ", url='" + url + '\'' +
                 ", material=" + material +

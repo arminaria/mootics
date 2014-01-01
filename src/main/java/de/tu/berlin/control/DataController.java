@@ -33,10 +33,8 @@ public class DataController implements Initializable {
     public TableColumn<Data, Material> material;
     public TableView dataTable;
 
-    DBController dbController = new DBController();
-
-
     public void readData(ActionEvent actionEvent) {
+        DBController dbController = new DBController();
         List<Data> allData = dbController.getAllData();
         final ObservableList<Data> data = FXCollections.observableArrayList();
         data.addAll(allData);

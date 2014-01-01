@@ -1,6 +1,10 @@
 package de.tu.berlin;
 
+import de.tu.berlin.control.DBController;
 import de.tu.berlin.control.Navigation;
+import de.tu.berlin.model.Data;
+import de.tu.berlin.model.Material;
+import de.tu.berlin.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
@@ -18,7 +22,7 @@ public class MainApp extends Application {
     private static Stage currentStage;
 
     public static void main(String[] args) throws Exception {
-        launch(args);
+       launch(args);
     }
 
 

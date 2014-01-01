@@ -9,6 +9,8 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +30,8 @@ public class ImportController implements Initializable {
     public TextField separator;
     @FXML
     public ProgressBar progressBar;
+
+    private static Logger log = LoggerFactory.getLogger(ImportController.class);
 
     private static File file;
 
@@ -72,7 +76,9 @@ public class ImportController implements Initializable {
                 DBController dbController = new DBController();
                 dbController.start();
                 for (int i = 0; i < count; i++) {
-                    dbController.insert(dataList.get(i));
+                    Data d = dataList.get(i);
+                    dbController.insert(d);
+                    log.debug("inserted {}", d);
                     updateProgress(i + 1, count);
                 }
                 dbController.commit();
