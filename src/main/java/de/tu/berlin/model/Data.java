@@ -30,8 +30,6 @@ public class Data implements Serializable {
     private String url;
     @ManyToOne
     private Material material;
-    @Transient
-    private Long timeInMillis;
 
     public Long getId() {
         return id;
@@ -79,14 +77,6 @@ public class Data implements Serializable {
 
     public void setMaterial(Material material) {
         this.material = material;
-    }
-
-    public Long getTimeInMillis() {
-        return timeInMillis;
-    }
-
-    public void setTimeInMillis(Long timeInMillis) {
-        this.timeInMillis = timeInMillis;
     }
 
     @Override
