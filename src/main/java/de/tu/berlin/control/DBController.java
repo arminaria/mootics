@@ -73,7 +73,7 @@ public class DBController {
 
 
     public List<Data> getAllData() {
-        return em.createQuery("select d from Data d", Data.class).getResultList();
+        return em().createQuery("select d from Data d", Data.class).getResultList();
     }
 
   /*
