@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="de.tu.berlin.control.ImportController">
   <children>
-    <Text fill="WHITE" layoutX="283.0" layoutY="48.0" strikethrough="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Import new Data to Database" textAlignment="CENTER">
+    <Text fill="WHITE" layoutX="283.0" layoutY="48.0" strikethrough="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Import to Database" textAlignment="CENTER">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" color="#202020" height="75.42857142857143" radius="37.214285714285715" spread="0.8650793650793651" width="75.42857142857143" />
       </effect>

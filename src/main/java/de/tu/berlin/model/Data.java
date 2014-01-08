@@ -12,10 +12,11 @@ import java.util.Locale;
  * Date: 22.11.13
  * Time: 13:26
  */
-@Entity@NamedQueries(
+@Entity@NamedQueries({
         @NamedQuery(name="Data.Match", query="SELECT d FROM Data d where " +
-                "d.action=:action and d.material=:material and d.time=:time and d.user=:user")
-)
+                "d.action=:action and d.material=:material and d.time=:time and d.user=:user"),
+        @NamedQuery(name="Data.urls", query = "Select d from Data d where d.url = :url")
+})
 public class Data implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -28,8 +29,13 @@ public class Data implements Serializable {
     private String action;
     @Column
     private String url;
-    @ManyToOne
-    private Material material;
+    @Column
+    private String material;
+    @Column
+    private String category;
+    @Column
+    private String lecture;
+
 
     public Long getId() {
         return id;
@@ -71,12 +77,28 @@ public class Data implements Serializable {
         this.url = url;
     }
 
-    public Material getMaterial() {
+    public String getMaterial() {
         return material;
     }
 
-    public void setMaterial(Material material) {
+    public void setMaterial(String material) {
         this.material = material;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getLecture() {
+        return lecture;
+    }
+
+    public void setLecture(String lecture) {
+        this.lecture = lecture;
     }
 
     @Override

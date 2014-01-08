@@ -12,18 +12,20 @@
       <bottom>
         <AnchorPane prefHeight="42.0" prefWidth="800.0">
           <children>
-            <Button layoutX="652.0" layoutY="11.0" mnemonicParsing="false" onAction="#readData" prefWidth="118.0" text="reload" />
+            <Button layoutX="652.0" layoutY="11.0" mnemonicParsing="false" onAction="#readData" prefWidth="118.0" text="reload" fx:id="reloadButton"/>
           </children>
         </AnchorPane>
       </bottom>
       <center>
-        <TableView fx:id="dataTable" prefHeight="533.0" prefWidth="800.0000999999975">
+        <TableView fx:id="dataTable" prefHeight="533.0" prefWidth="800.0000999999975" editable="true">
           <columns>
             <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="128.0" text="User" fx:id="userId" />
             <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="128.0" text="Time" fx:id="time" />
             <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="82.0" text="Action" fx:id="action" />
             <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="82.0" text="Url" fx:id="url" />
             <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="79.0" text="Material" fx:id="material" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="79.0" text="Category" fx:id="category" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="79.0" text="Lecture" fx:id="lecture" editable="true"/>
           </columns>
         </TableView>
       </center>

@@ -1,10 +1,6 @@
 package de.tu.berlin;
 
-import de.tu.berlin.control.DBController;
 import de.tu.berlin.control.Navigation;
-import de.tu.berlin.model.Data;
-import de.tu.berlin.model.Material;
-import de.tu.berlin.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
@@ -13,8 +9,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 
 public class MainApp extends Application {
 

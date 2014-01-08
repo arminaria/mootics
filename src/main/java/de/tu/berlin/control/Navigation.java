@@ -75,8 +75,24 @@ public class Navigation {
         }
     }
 
+    public void gotoImportGrades(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        //Set extension filter
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null){
+            ImportController.setFile(file);
+            ImportController.setGrades(true);
+            String fxmlFile = "/fxml/importWindow.fxml";
+            replaceSceneContent(fxmlFile);
+        }
+    }
+
     public void gotoShowDayOfUsage(ActionEvent actionEvent) {
         String fxmlFile = "/fxml/dayOfUsage.fxml";
         replaceSceneContent(fxmlFile);
     }
+
+
 }

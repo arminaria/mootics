@@ -1,18 +1,12 @@
 package de.tu.berlin.control;
 
 import de.tu.berlin.model.Data;
-import de.tu.berlin.model.Material;
+import de.tu.berlin.model.Grades;
 import de.tu.berlin.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
 
-import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import javax.persistence.*;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -22,9 +16,21 @@ public class DBController {
     private static final Logger log = LoggerFactory.getLogger(DBController.class);
 
     public static EntityManager em;
+    private static DBController instance;
+    private static EntityManagerFactory emf;
+
+    public static DBController getInstance(){
+        if(instance == null){
+            instance = new DBController();
+        }
+        return instance;
+    }
+
+    private DBController(){
+        emf = Persistence.createEntityManagerFactory("dataPU");
+    };
 
     private EntityManager em() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dataPU");
         if (em == null) {
             em = emf.createEntityManager();
         }
@@ -39,6 +45,10 @@ public class DBController {
         em().getTransaction().commit();
     }
 
+    public void insertGrade(Grades g){
+        em.persist(g);
+    }
+
     public void insert(Data d) throws InterruptedException {
         User user = em.find(User.class, d.getUser().getId());
 
@@ -46,13 +56,6 @@ public class DBController {
             em.persist(d.getUser());
         }else{
             d.setUser(user);
-        }
-
-        Material material = em.find(Material.class, d.getMaterial().getName());
-        if(material == null){
-            em.persist(d.getMaterial());
-        }else {
-            d.setMaterial(material);
         }
 
         TypedQuery<Data> namedQuery = em.createNamedQuery("Data.Match", Data.class);
@@ -75,6 +78,41 @@ public class DBController {
     public List<Data> getAllData() {
         return em().createQuery("select d from Data d", Data.class).getResultList();
     }
+
+    public void update(Data d) {
+        em().merge(d);
+    }
+
+    public void updateLecture(Data d) {
+        String url = d.getUrl();
+        String lecture = d.getLecture();
+
+        TypedQuery<Data> urlsQuery = em().createNamedQuery("Data.urls", Data.class);
+        urlsQuery.setParameter("url",url);
+        List<Data> sameUrlData = urlsQuery.getResultList();
+        for (Data data : sameUrlData) {
+            data.setLecture(lecture);
+            update(data);
+        }
+    }
+
+    public void updateCategory(Data d) {
+        String url = d.getUrl();
+        String category = d.getCategory();
+
+        TypedQuery<Data> urlsQuery = em().createNamedQuery("Data.urls", Data.class);
+        urlsQuery.setParameter("url",url);
+        List<Data> sameUrlData = urlsQuery.getResultList();
+        for (Data data : sameUrlData) {
+            data.setCategory(category);
+            update(data);
+        }
+    }
+
+    public User getUser(Long userId) {
+        return em().find(User.class, userId);
+    }
+
 
   /*
 

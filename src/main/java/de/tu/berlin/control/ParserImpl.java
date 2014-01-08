@@ -2,11 +2,12 @@ package de.tu.berlin.control;
 
 import au.com.bytecode.opencsv.CSVReader;
 import de.tu.berlin.model.Data;
-import de.tu.berlin.model.Material;
+import de.tu.berlin.model.Grades;
 import de.tu.berlin.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -54,16 +55,13 @@ public class ParserImpl implements Parser {
             User user = new User();
             user.setId(Long.parseLong(s[POS.userId.get()]));
 
-            // Material
-            Material material = new Material();
-            material.setName(s[POS.info.get()]);
-
             data.setTime(parseTime(s[POS.time.get()]));
             data.setAction(s[POS.action.get()].split("\\(")[0].trim());
             data.setUrl(s[POS.action.get()].split("\\(")[1].split("\\)")[0].trim());
-
             data.setUser(user);
-            data.setMaterial(material);
+            data.setMaterial(s[POS.info.get()]);
+            data.setCategory(getCategory(s[POS.info.get()]));
+            data.setLecture("TODO");
 
             log.info("parsed {}" , data);
 
@@ -71,6 +69,66 @@ public class ParserImpl implements Parser {
         }
 
         return dataList;
+    }
+
+    @Override
+    public List<Grades> parseGrades(File csvFile) throws IOException {
+        CSVReader csvReader = new CSVReader(new FileReader(csvFile.getAbsoluteFile()), getSeparator());
+
+        List<String[]> strings = csvReader.readAll();
+        List<Grades> gradesList = new ArrayList<Grades>(strings.size());
+
+        String[] names = strings.get(0);
+
+        for (String[] s : strings) {
+            try{
+                for (int i = 1; i < s.length; i++) {
+                    Grades g = new Grades();
+                    Long userId = Long.valueOf(s[0]);
+
+                    DBController db = DBController.getInstance();
+                    User user = db.getUser(userId);
+                    g.setUser(user);
+                    String grade = s[i];
+                    if(!grade.equals("") && grade != null && !grade.equals("-")){
+                        g.setGrade(Long.parseLong(grade));
+                    }
+                    String name = names[i];
+                    g.setName(name);
+
+                    g.setCategory(getCategory(name));
+                    g.setLecture("TODO");
+                    gradesList.add(g);
+                }
+            }catch (Exception e){
+                continue;
+            }
+        }
+        return gradesList;
+    }
+
+    private String getCategory(String info) {
+        info = info.toLowerCase();
+
+        if(info.contains("homework")){
+            return "Homework";
+        }else if(info.contains("video")){
+            return "Video";
+        }else if(info.contains("book") || info.contains("lecture") || info.contains("vorlesungsfolien")){
+            return "Lecture";
+        }else if(info.contains("exercise")){
+            return "Exercise";
+        }else if(info.contains("self-test")){
+            return "Test";
+        }else if(info.contains("kahoot")){
+            return "Kahoot";
+        }else if(info.contains("sprachkommunikation")){
+            return "View";
+        }else if(info.contains("skript") || info.contains("script")){
+            return "Script";
+        }else {
+            return "TODO";
+        }
     }
 
     private Calendar parseTime(String time){

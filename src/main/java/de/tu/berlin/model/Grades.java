@@ -11,28 +11,20 @@ import javax.persistence.*;
  */
 public class Grades {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private Long id;
-
     @OneToOne
     private User user;
-
-    @ManyToOne
-    private Category category;
 
     @Column
     private String name;
 
     @Column
+    private String category;
+
+    @Column
+    private String lecture;
+
+    @Column
     private long grade;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public User getUser() {
         return user;
@@ -40,14 +32,6 @@ public class Grades {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public String getName() {
@@ -58,22 +42,27 @@ public class Grades {
         this.name = name;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getLecture() {
+        return lecture;
+    }
+
+    public void setLecture(String lecture) {
+        this.lecture = lecture;
+    }
+
     public long getGrade() {
         return grade;
     }
 
     public void setGrade(long grade) {
         this.grade = grade;
-    }
-
-    @Override
-    public String toString() {
-        return "Grades{" +
-                "id=" + id +
-                ", user=" + user +
-                ", category=" + category +
-                ", name='" + name + '\'' +
-                ", grade=" + grade +
-                '}';
     }
 }

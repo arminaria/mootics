@@ -1,16 +1,22 @@
 package de.tu.berlin.control;
 
 import de.tu.berlin.model.Data;
-import de.tu.berlin.model.Material;
 import de.tu.berlin.model.User;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldListCell;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.net.URL;
@@ -30,15 +36,17 @@ public class DataController implements Initializable {
     public TableColumn<Data, Calendar> time;
     public TableColumn<Data, String> action;
     public TableColumn<Data, String> url;
-    public TableColumn<Data, Material> material;
+    public TableColumn<Data, String> material;
+    public TableColumn category;
+    public TableColumn lecture;
+
     public TableView dataTable;
+    public Button reloadButton;
 
     public void readData(ActionEvent actionEvent) {
-        DBController dbController = new DBController();
-        List<Data> allData = dbController.getAllData();
-        final ObservableList<Data> data = FXCollections.observableArrayList();
-        data.addAll(allData);
-        dataTable.setItems(data);
+        reloadButton.setDisable(true);
+        Task worker = createWorker();
+        new Thread(worker).start();
     }
 
     @Override
@@ -52,7 +60,63 @@ public class DataController implements Initializable {
         action.setCellValueFactory(new PropertyValueFactory<Data, String>("action"));
 
         url.setCellValueFactory(new PropertyValueFactory<Data, String>("url"));
-        material.setCellValueFactory(new PropertyValueFactory<Data, Material>("material"));
+        material.setCellValueFactory(new PropertyValueFactory<Data, String>("material"));
+
+        lecture.setCellValueFactory(new PropertyValueFactory<Data, String>("lecture"));
+        lecture.setCellFactory(TextFieldTableCell.forTableColumn());
+        lecture.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Data, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<Data, String> event) {
+                Data d = event.getRowValue();
+                d.setLecture(event.getNewValue());
+                DBController dbController = DBController.getInstance();
+                dbController.start();
+                dbController.updateLecture(d);
+                dbController.commit();
+                readData(null);
+                dataTable.requestLayout();
+            }
+        });
+
+        category.setCellValueFactory(new PropertyValueFactory<Data, String>("category"));
+        category.setCellFactory(TextFieldTableCell.forTableColumn());
+        category.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Data, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<Data, String> event) {
+                Data d = event.getRowValue();
+                d.setCategory(event.getNewValue());
+                DBController dbController = DBController.getInstance();
+                dbController.start();
+                dbController.updateCategory(d);
+                dbController.commit();
+                readData(null);
+            }
+        });
+        readData(null);
+    }
+
+    public Task createWorker() {
+        return new Task() {
+            @Override
+            protected Object call() throws Exception {
+                DBController dbController = DBController.getInstance();
+                List<Data> allData = dbController.getAllData();
+                final ObservableList<Data> data = FXCollections.observableArrayList();
+                data.addAll(allData);
+                dataTable.setItems(data);
+
+                Platform.runLater(
+                        new Runnable() {
+                            public void run() {
+                                reloadButton.setDisable(false);
+                            }
+                        }
+                );
+
+                return true;
+            }
+
+        };
 
     }
 
@@ -103,4 +167,7 @@ public class DataController implements Initializable {
     }
 
 
+    public void editLecture(TableColumn.CellEditEvent<Data, String> stCellEditEvent) {
+        System.out.println(stCellEditEvent.getNewValue());
+    }
 }

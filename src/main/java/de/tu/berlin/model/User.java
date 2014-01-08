@@ -14,9 +14,6 @@ public class User {
     @OneToMany
     private List<Data> datas;
 
-    @OneToMany
-    private List<Material> materials;
-
     public long getId() {
         return id;
     }
@@ -33,11 +30,4 @@ public class User {
         this.datas = datas;
     }
 
-    public List<Material> getMaterials() {
-        return materials;
-    }
-
-    public void setMaterials(List<Material> materials) {
-        this.materials = materials;
-    }
 }
