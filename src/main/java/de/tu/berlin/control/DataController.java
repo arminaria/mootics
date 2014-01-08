@@ -144,8 +144,8 @@ public class DataController implements Initializable {
         return callback;
     }
 
-    Callback<TableColumn<Data, User>, TableCell<Data, User>> getUserFormat(){
-        Callback<TableColumn<Data, User>, TableCell<Data, User>> callback =
+    public static Callback<TableColumn<Data, User>, TableCell<Data, User>> getUserFormat(){
+        return
                 new Callback<TableColumn<Data, User>, TableCell<Data, User>>() {
                     @Override
                     public TableCell<Data, User> call(TableColumn<Data, User> param) {
@@ -163,11 +163,5 @@ public class DataController implements Initializable {
                         };
                     }
                 };
-        return callback;
-    }
-
-
-    public void editLecture(TableColumn.CellEditEvent<Data, String> stCellEditEvent) {
-        System.out.println(stCellEditEvent.getNewValue());
     }
 }

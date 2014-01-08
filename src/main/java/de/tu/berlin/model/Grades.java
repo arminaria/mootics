@@ -9,8 +9,14 @@ import javax.persistence.*;
  * Time: 12:05
  * To change this template use File | Settings | File Templates.
  */
+@Entity@NamedQueries({
+        @NamedQuery(name="Grade.Name", query="SELECT g FROM Grades g where g.name=:name")
+})
 public class Grades {
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private Long id;
+
     @OneToOne
     private User user;
 
@@ -25,6 +31,14 @@ public class Grades {
 
     @Column
     private long grade;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public User getUser() {
         return user;

@@ -88,6 +88,11 @@ public class ParserImpl implements Parser {
 
                     DBController db = DBController.getInstance();
                     User user = db.getUser(userId);
+                    if(user == null){
+                        user = new User();
+                        user.setId(userId);
+                        db.createUser(user);
+                    }
                     g.setUser(user);
                     String grade = s[i];
                     if(!grade.equals("") && grade != null && !grade.equals("-")){
@@ -100,7 +105,7 @@ public class ParserImpl implements Parser {
                     g.setLecture("TODO");
                     gradesList.add(g);
                 }
-            }catch (Exception e){
+            }catch (NumberFormatException e){
                 continue;
             }
         }

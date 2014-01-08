@@ -19,7 +19,7 @@
     </appender>
 
     <logger name="de.tu.berlin">
-        <level value="DEBUG"/>
+        <level value="INFO"/>
     </logger>
 
     <root>

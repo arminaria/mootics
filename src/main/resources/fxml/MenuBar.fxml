@@ -9,16 +9,18 @@
             <items>
                 <MenuItem mnemonicParsing="false" text="import" onAction="#gotoImportData"/>
                 <MenuItem mnemonicParsing="false" text="import grades" onAction="#gotoImportGrades"/>
+
                 <SeparatorMenuItem mnemonicParsing="false" />
-                <!--<MenuItem mnemonicParsing="false" text="clear database" onAction="#showModalWindow"/>-->
+                <MenuItem mnemonicParsing="false" text="backup" onAction="#createBackup"/>
+                <SeparatorMenuItem mnemonicParsing="false" />
+
                 <MenuItem mnemonicParsing="false" text="Close" onAction="#close"  />
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Show">
             <items>
-
                 <MenuItem mnemonicParsing="false" text="Show Data"  onAction="#gotoShowData" />
-                <MenuItem mnemonicParsing="false" text="Show Content" onAction="#gotoContent" />
+                <MenuItem mnemonicParsing="false" text="Show Grades" onAction="#gotoShowGrades" />
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Manage">

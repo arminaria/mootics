@@ -46,6 +46,14 @@ public class DBController {
     }
 
     public void insertGrade(Grades g){
+        User user = em.find(User.class, g.getUser().getId());
+
+        if(user == null){
+            em.persist(g.getUser());
+        }else{
+            g.setUser(user);
+        }
+
         em.persist(g);
     }
 
@@ -111,6 +119,40 @@ public class DBController {
 
     public User getUser(Long userId) {
         return em().find(User.class, userId);
+    }
+
+    public void createUser(User user) {
+        em().persist(user);
+    }
+
+    public List<Grades> getAllGrades() {
+        return em().createQuery("select g from Grades g", Grades.class).getResultList();
+    }
+
+    public void updateGradeLecture(Grades g) {
+        String name = g.getName();
+        String lecture = g.getLecture();
+
+        TypedQuery<Grades> gradesTypedQuery = em().createNamedQuery("Grade.Name", Grades.class);
+        gradesTypedQuery.setParameter("name",name);
+        List<Grades> resultList = gradesTypedQuery.getResultList();
+        for (Grades grade : resultList) {
+            grade.setLecture(lecture);
+            em().merge(grade);
+        }
+    }
+
+    public void updateGradeCategory(Grades g) {
+        String name = g.getName();
+        String category = g.getCategory();
+
+        TypedQuery<Grades> gradesTypedQuery = em().createNamedQuery("Grade.Name", Grades.class);
+        gradesTypedQuery.setParameter("name",name);
+        List<Grades> resultList = gradesTypedQuery.getResultList();
+        for (Grades grade : resultList) {
+            grade.setCategory(category);
+            em().merge(grade);
+        }
     }
 
 

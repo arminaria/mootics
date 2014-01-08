@@ -1,5 +1,6 @@
 package de.tu.berlin.control;
 
+import com.google.common.io.Files;
 import de.tu.berlin.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +24,7 @@ public class Navigation {
     private static Stage stage;
 
 
-
-    public void replaceSceneContent(String fxml)  {
+    public void replaceSceneContent(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml"));
@@ -57,18 +57,19 @@ public class Navigation {
         String fxmlFile = "/fxml/content.fxml";
         replaceSceneContent(fxmlFile);
     }
-    public void gotoMain(){
+
+    public void gotoMain() {
         String fxmlFile = "/fxml/data.fxml";
         replaceSceneContent(fxmlFile);
     }
 
-    public void gotoImportData(){
+    public void gotoImportData() {
         FileChooser fileChooser = new FileChooser();
         //Set extension filter
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showOpenDialog(null);
-        if (file != null){
+        if (file != null) {
             ImportController.setFile(file);
             String fxmlFile = "/fxml/importWindow.fxml";
             replaceSceneContent(fxmlFile);
@@ -81,7 +82,7 @@ public class Navigation {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showOpenDialog(null);
-        if (file != null){
+        if (file != null) {
             ImportController.setFile(file);
             ImportController.setGrades(true);
             String fxmlFile = "/fxml/importWindow.fxml";
@@ -95,4 +96,20 @@ public class Navigation {
     }
 
 
+    public void gotoShowGrades(ActionEvent actionEvent) {
+        String fxmlFile = "/fxml/grade.fxml";
+        replaceSceneContent(fxmlFile);
+    }
+
+    public void createBackup(ActionEvent actionEvent) throws IOException {
+        File dbFile = new File(".db.h2.db");
+        File traceFile = new File(".db.trace.db");
+
+        File toDb = new File(".db.h2.db_backup_" + System.currentTimeMillis());
+        Files.copy(dbFile, toDb);
+        File toTrace = new File(".db.trace.db_backup_" + System.currentTimeMillis());
+        Files.copy(traceFile, toTrace);
+
+        log.info("Backuped DB in {} and {}",toDb,toTrace);
+    }
 }
