@@ -38,7 +38,7 @@ public class ChartController implements Initializable{
 
         XYChart.Series series = new XYChart.Series();
         for (Point2D chartPoint : chartPoints) {
-            XYChart.Data<Double, Double> doubleDoubleData = new XYChart.Data<>(chartPoint.getX(), chartPoint.getY());
+            XYChart.Data<Double, Double> doubleDoubleData = new XYChart.Data<Double, Double>(chartPoint.getX(), chartPoint.getY());
             series.getData().add(doubleDoubleData);
         }
 
@@ -54,7 +54,7 @@ public class ChartController implements Initializable{
                     chart.setTitle(btn.getText());
                     XYChart.Series series = new XYChart.Series();
                     for (Point2D chartPoint : chartPoints) {
-                        XYChart.Data<Double, Double> doubleDoubleData = new XYChart.Data<>(chartPoint.getX(), chartPoint.getY());
+                        XYChart.Data<Double, Double> doubleDoubleData = new XYChart.Data<Double,Double>(chartPoint.getX(), chartPoint.getY());
                         series.getData().add(doubleDoubleData);
                     }
                     chart.getData().clear();

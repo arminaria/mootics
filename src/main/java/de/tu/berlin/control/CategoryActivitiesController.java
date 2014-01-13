@@ -48,7 +48,7 @@ public class CategoryActivitiesController implements Initializable{
         gs.addAll(grades);
         gradesTable.setItems(gs);
 
-        final XYChart.Series<String, Long> series = new XYChart.Series<>();
+        final XYChart.Series<String, Long> series = new XYChart.Series<String, Long>();
         for (String category : categories) {
             users.get(0);
             int clicksOn = db.getClicksOn(users.get(0), category);
@@ -71,7 +71,7 @@ public class CategoryActivitiesController implements Initializable{
                     gs.addAll(userGrades);
                     gradesTable.setItems(gs);
 
-                    XYChart.Series<String, Long> series = new XYChart.Series<>();
+                    XYChart.Series<String, Long> series = new XYChart.Series<String, Long>();
                     for (String category : categories) {
                         int clicksOn = db.getClicksOn(user, category);
                         series.getData().add(new XYChart.Data<String, Long>(category,new Long(clicksOn)));

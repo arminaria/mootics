@@ -347,7 +347,7 @@ public class DBController {
     }
 
     public List<Point2D> getChartPoints(String test) {
-        List<Point2D> results = new ArrayList<>();
+        List<Point2D> results = new ArrayList<Point2D>();
 
         test = test.contains(":")? test.split(":")[1].trim() : test;
         List<User> allUser = em.createQuery("select u from User u", User.class).getResultList();
