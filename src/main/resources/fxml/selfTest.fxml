@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="575.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/2.2"
+            fx:controller="de.tu.berlin.control.ChartController">
+    <children>
+        <SplitPane dividerPositions="0.30451127819548873" focusTraversable="true" prefHeight="490.0" prefWidth="621.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <ListView prefHeight="488.0" prefWidth="151.0" AnchorPane.bottomAnchor="0.0"
+                                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+                                  fx:id="list">
+                        </ListView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="527.0" prefWidth="579.0">
+                    <children>
+                        <ScatterChart id="chart" layoutX="14.0" layoutY="55.0" prefHeight="409.0" prefWidth="513.0"
+                                      title="Auswertung Lecture 1" fx:id="chart">
+                            <xAxis>
+                                <NumberAxis fx:id="xAxis" side="BOTTOM"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis fx:id="yAxis" side="LEFT"/>
+                            </yAxis>
+                        </ScatterChart>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

@@ -102,7 +102,17 @@ public class Navigation {
     }
 
     public void gotoShowChart(ActionEvent actionEvent) {
-        String fxmlFile = "/fxml/chart.fxml";
+        String fxmlFile = "/fxml/selfTest.fxml";
+        replaceSceneContent(fxmlFile);
+    }
+
+    public void gotoShowMidTermChart(ActionEvent actionEvent) {
+        String fxmlFile = "/fxml/midTerm.fxml";
+        replaceSceneContent(fxmlFile);
+    }
+
+    public void gotoCategoryActivities(ActionEvent actionEvent) {
+        String fxmlFile = "/fxml/categoryActivities.fxml";
         replaceSceneContent(fxmlFile);
     }
 
@@ -126,11 +136,4 @@ public class Navigation {
         db.commit();
     }
 
-    public void showInfo(ActionEvent actionEvent) {
-        DBController db = DBController.getInstance();
-        db.getChartPoints();
-
-
-
-    }
 }

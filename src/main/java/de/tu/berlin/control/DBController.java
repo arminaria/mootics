@@ -24,6 +24,7 @@ public class DBController {
     public static EntityManager em;
     private static DBController instance;
     private static EntityManagerFactory emf;
+    private Object selfTests;
 
     public static DBController getInstance() {
         if (instance == null) {
@@ -345,11 +346,11 @@ public class DBController {
 
     }
 
-    public List<Point2D> getChartPoints() {
+    public List<Point2D> getChartPoints(String test) {
         List<Point2D> results = new ArrayList<>();
 
+        test = test.contains(":")? test.split(":")[1].trim() : test;
         List<User> allUser = em.createQuery("select u from User u", User.class).getResultList();
-        String test = "Self-Test Lecture 1";
         for (User user : allUser) {
             TypedQuery<Data> dataTypedQuery = em.createQuery("Select d from Data d where d.user =:user and d.material=:testName " +
                     "ORDER BY time DESC ", Data.class).setMaxResults(1);
@@ -384,6 +385,37 @@ public class DBController {
         }
         return results;
     }
+
+    public List<String> getSelfTests() {
+        List<String> resultList = em.createQuery("select distinct g.name from Grades g where g.name like '%Self-Test Lecture%' group by g.name,g.id", String.class).getResultList();
+
+        return resultList;
+    }
+
+    public List<User> getAllUser() {
+        return em.createQuery("select u from User u").getResultList();
+    }
+
+    public List<String> getCategories() {
+        return em.createQuery("select distinct d.category from Data d where d.category != 'TODO' ",String.class).getResultList();
+    }
+
+    public int getClicksOn(User user, String category) {
+        TypedQuery<Data> query = em.createQuery("select d from Data d where d.user=:user and d.category=:category", Data.class);
+        query.setParameter("user", user);
+        query.setParameter("category", category);
+        return query.getResultList().size();
+
+    }
+
+    public List<Grades> getGrades(User user) {
+        TypedQuery<Grades> query = em.createQuery("Select g from Grades g where g.user = :user", Grades.class);
+        query.setParameter("user", user);
+        return query.getResultList();
+
+    }
+
+
 
 
   /*

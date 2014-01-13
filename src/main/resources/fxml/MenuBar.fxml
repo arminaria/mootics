@@ -19,10 +19,10 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Show">
             <items>
-                <MenuItem mnemonicParsing="false" text="Show Chart"  onAction="#gotoShowChart" />
+                <MenuItem mnemonicParsing="false" text="Show Test Chart"  onAction="#gotoShowChart" />
+                <MenuItem mnemonicParsing="false" text="Show Category Activities"  onAction="#gotoCategoryActivities" />
                 <MenuItem mnemonicParsing="false" text="Show Data"  onAction="#gotoShowData" />
                 <MenuItem mnemonicParsing="false" text="Show Grades" onAction="#gotoShowGrades" />
-                <MenuItem mnemonicParsing="false" text="Show Data"  onAction="#showInfo" />
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Manage">
