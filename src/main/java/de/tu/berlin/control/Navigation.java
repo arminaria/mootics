@@ -101,6 +101,11 @@ public class Navigation {
         replaceSceneContent(fxmlFile);
     }
 
+    public void gotoShowChart(ActionEvent actionEvent) {
+        String fxmlFile = "/fxml/chart.fxml";
+        replaceSceneContent(fxmlFile);
+    }
+
     public void createBackup(ActionEvent actionEvent) throws IOException {
         File dbFile = new File(".db.h2.db");
         File traceFile = new File(".db.trace.db");
@@ -111,5 +116,21 @@ public class Navigation {
         Files.copy(traceFile, toTrace);
 
         log.info("Backuped DB in {} and {}",toDb,toTrace);
+    }
+
+
+    public void UpdateLectures(ActionEvent actionEvent) {
+        DBController db = DBController.getInstance();
+        db.start();
+        db.updateViews();
+        db.commit();
+    }
+
+    public void showInfo(ActionEvent actionEvent) {
+        DBController db = DBController.getInstance();
+        db.getChartPoints();
+
+
+
     }
 }

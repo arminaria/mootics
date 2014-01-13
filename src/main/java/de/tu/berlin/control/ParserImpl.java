@@ -7,15 +7,12 @@ import de.tu.berlin.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Armin on 27.11.13.
@@ -137,10 +134,11 @@ public class ParserImpl implements Parser {
     }
 
     private Calendar parseTime(String time){
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("DD.MM.yyyy HH:mm");
+        Calendar cal = Calendar.getInstance(Locale.GERMAN);
+        SimpleDateFormat sdf = new SimpleDateFormat("d.MM.yyyy H:m");
         try {
-            cal.setTime(sdf.parse(time));
+            Date parse = sdf.parse(time);
+            cal.setTime(parse);
         } catch (ParseException e) {
             e.printStackTrace();
         }

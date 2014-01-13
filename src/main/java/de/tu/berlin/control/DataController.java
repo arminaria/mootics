@@ -14,16 +14,12 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.net.URL;
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -120,31 +116,37 @@ public class DataController implements Initializable {
 
     }
 
-    Callback<TableColumn<Data, Calendar>, TableCell<Data, Calendar>> getCalendarFormat(){
+    Callback<TableColumn<Data, Calendar>, TableCell<Data, Calendar>> getCalendarFormat() {
         Callback<TableColumn<Data, Calendar>, TableCell<Data, Calendar>> callback =
                 new Callback<TableColumn<Data, Calendar>, TableCell<Data, Calendar>>() {
-            @Override
-            public TableCell<Data, Calendar> call(TableColumn<Data, Calendar> param) {
-                return new TableCell<Data, Calendar>() {
-
                     @Override
-                    protected void updateItem(Calendar item, boolean empty) {
-                        super.updateItem(item, empty);
-                        DateFormat dateInstance = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.GERMAN);
-                        DateFormat timeInstance = DateFormat.getTimeInstance(DateFormat.DEFAULT, Locale.GERMAN);
-                        if (!empty) {
-                            setText(dateInstance.format(item.getTime()) + " " + timeInstance.format(item.getTime()));
-                        } else {
-                            setText(null);
-                        }
+                    public TableCell<Data, Calendar> call(TableColumn<Data, Calendar> param) {
+                        return new TableCell<Data, Calendar>() {
+
+                            @Override
+                            protected void updateItem(Calendar item, boolean empty) {
+                                super.updateItem(item, empty);
+                                if (!empty) {
+                                    int m = item.get(Calendar.MINUTE);
+                                    String min = (m / 10) == 0 ? "0" + m : String.valueOf(m);
+                                    String calText = String.format("%d.%d.%d %d:%s",
+                                            item.get(Calendar.DAY_OF_MONTH),
+                                            item.get(Calendar.MONTH) + 1,
+                                            item.get(Calendar.YEAR),
+                                            item.get(Calendar.HOUR) + 12 * item.get(Calendar.AM_PM),
+                                            min);
+                                    setText(calText);
+                                } else {
+                                    setText(null);
+                                }
+                            }
+                        };
                     }
                 };
-            }
-        };
         return callback;
     }
 
-    public static Callback<TableColumn<Data, User>, TableCell<Data, User>> getUserFormat(){
+    public static Callback<TableColumn<Data, User>, TableCell<Data, User>> getUserFormat() {
         return
                 new Callback<TableColumn<Data, User>, TableCell<Data, User>>() {
                     @Override

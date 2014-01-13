@@ -9,7 +9,7 @@
             <items>
                 <MenuItem mnemonicParsing="false" text="import" onAction="#gotoImportData"/>
                 <MenuItem mnemonicParsing="false" text="import grades" onAction="#gotoImportGrades"/>
-
+                <MenuItem mnemonicParsing="false" text="update Lectures" onAction="#UpdateLectures" disable="true" />
                 <SeparatorMenuItem mnemonicParsing="false" />
                 <MenuItem mnemonicParsing="false" text="backup" onAction="#createBackup"/>
                 <SeparatorMenuItem mnemonicParsing="false" />
@@ -19,13 +19,14 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Show">
             <items>
+                <MenuItem mnemonicParsing="false" text="Show Chart"  onAction="#gotoShowChart" />
                 <MenuItem mnemonicParsing="false" text="Show Data"  onAction="#gotoShowData" />
                 <MenuItem mnemonicParsing="false" text="Show Grades" onAction="#gotoShowGrades" />
+                <MenuItem mnemonicParsing="false" text="Show Data"  onAction="#showInfo" />
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Manage">
             <items>
-
                 <MenuItem mnemonicParsing="false" text="Show Day of Usage"  onAction="#gotoShowDayOfUsage" />
                 <MenuItem mnemonicParsing="false" text="Show Content" onAction="#gotoContent" />
             </items>
