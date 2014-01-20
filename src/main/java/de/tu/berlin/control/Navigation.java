@@ -140,4 +140,10 @@ public class Navigation {
         String fxmlFile = "/fxml/weeks.fxml";
         replaceSceneContent(fxmlFile);
     }
+
+
+    public void gotoShowMonthUsage(ActionEvent actionEvent) {
+        String fxmlFile = "/fxml/month.fxml";
+        replaceSceneContent(fxmlFile);
+    }
 }

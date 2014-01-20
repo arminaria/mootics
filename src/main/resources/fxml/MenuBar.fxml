@@ -23,6 +23,9 @@
                 <MenuItem mnemonicParsing="false" text="Show Category Activities"  onAction="#gotoCategoryActivities" />
                 <MenuItem mnemonicParsing="false" text="Show Data"  onAction="#gotoShowData" />
                 <MenuItem mnemonicParsing="false" text="Show Week Usage" onAction="#gotoShowWeekUsage" />
+                <MenuItem mnemonicParsing="false" text="Show Month Usage" onAction="#gotoShowMonthUsage" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" text="Show Mid Term Exam" onAction="#gotoShowMidTermChart" />
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Manage">

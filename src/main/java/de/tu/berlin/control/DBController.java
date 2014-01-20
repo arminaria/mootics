@@ -3,6 +3,7 @@ package de.tu.berlin.control;
 import de.tu.berlin.model.Data;
 import de.tu.berlin.model.Grades;
 import de.tu.berlin.model.User;
+import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,7 @@ public class DBController {
     private static DBController instance;
     private static EntityManagerFactory emf;
     private Object selfTests;
+    public static final String MIDTERM_EXAM = "HotPot: Midterm Exam (One Try Only!)";
 
     public static DBController getInstance() {
         if (instance == null) {
@@ -351,7 +353,7 @@ public class DBController {
     public List<Point2D> getChartPoints(String test) {
         List<Point2D> results = new ArrayList<Point2D>();
 
-        test = test.contains(":")? test.split(":")[1].trim() : test;
+        test = test.contains(":") ? test.split(":")[1].trim() : test;
         List<User> allUser = em.createQuery("select u from User u", User.class).getResultList();
         for (User user : allUser) {
             TypedQuery<Data> dataTypedQuery = em.createQuery("Select d from Data d where d.user =:user and d.material=:testName " +
@@ -377,8 +379,8 @@ public class DBController {
                 grades.setParameter("user", user);
 
                 Long g = grades.getResultList().isEmpty() ? -1 : grades.getResultList().get(0).getGrade();
-                if(g > 0){
-                    results.add(new Point2D(allClicks.size(),g));
+                if (g > 0) {
+                    results.add(new Point2D(allClicks.size(), g));
                     log.debug("user: {}, last: {}, clicks before: " + allClicks.size(), user.getId(), simpleDateFormat.format(lastTest.getTime().getTime()));
                     log.debug("\t grade:{} ", g);
                 }
@@ -399,7 +401,7 @@ public class DBController {
     }
 
     public List<String> getCategories() {
-        return em.createQuery("select distinct d.category from Data d where d.category != 'TODO' ",String.class).getResultList();
+        return em.createQuery("select distinct d.category from Data d where d.category != 'TODO' ", String.class).getResultList();
     }
 
     public int getClicksOn(User user, String category) {
@@ -420,11 +422,11 @@ public class DBController {
     public void getWeekUsage() {
         TypedQuery<Data> query = em.createQuery("SELECT d from Data d", Data.class);
         List<Data> resultList = query.getResultList();
-            Calendar now = Calendar.getInstance();
-            int i = now.get(Calendar.DAY_OF_WEEK);
+        Calendar now = Calendar.getInstance();
+        int i = now.get(Calendar.DAY_OF_WEEK);
 
         String DayOfWeek = now.getDisplayName(Calendar.DAY_OF_WEEK, 0, Locale.GERMAN);
-        switch (DayOfWeek){
+        switch (DayOfWeek) {
             case "Mo":
                 System.out.println("blaaaaaaaaaaaaaaaaaa");
                 break;
@@ -441,7 +443,7 @@ public class DBController {
         List<Data> allData = getAllData();
         int count = 0;
         for (Data data : allData) {
-            if(data.getDayOfWeek()==i) count++;
+            if (data.getDayOfWeek() == i) count++;
         }
         return count;
     }
@@ -449,12 +451,36 @@ public class DBController {
     public Long getClicksForDayOfWeekOn(String dayOfWeek, String category, List<Data> d) {
         int counter = 0;
         for (Data data : d) {
-            if(data.getTime().getDisplayName(Calendar.DAY_OF_WEEK,0,Locale.GERMAN).equals(dayOfWeek)
-                    && data.getCategory().equals(category)){
+            if (data.getTime().getDisplayName(Calendar.DAY_OF_WEEK, 0, Locale.GERMAN).equals(dayOfWeek)
+                    && data.getCategory().equals(category)) {
                 counter++;
             }
         }
         return new Long(counter);
+    }
+
+    public List<Data> getClicksForCategory(User user, ObservableList selectedItems) {
+        String q = "Select d from Data d where d.user=:user and (";
+        for (int i = 0; i < selectedItems.size(); i++) {
+            String cat = (String) selectedItems.get(i);
+            q += "d.category='" + cat + "'";
+            if (i != selectedItems.size() - 1) {
+                q += " or ";
+            }
+
+        }
+        q += ")";
+
+        TypedQuery<Data> query = em.createQuery(q, Data.class);
+        query.setParameter("user", user);
+        return query.getResultList();
+    }
+
+    public long getMidTermExamGrade(User user) {
+        TypedQuery<Grades> query = em.createQuery("Select g from Grades g where g.user=:user and g.name=:name", Grades.class);
+        query.setParameter("user", user);
+        query.setParameter("name", MIDTERM_EXAM);
+        return query.getResultList().get(0).getGrade();
     }
 
 

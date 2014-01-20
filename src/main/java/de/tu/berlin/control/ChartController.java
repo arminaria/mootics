@@ -36,6 +36,7 @@ public class ChartController implements Initializable{
         xAxis.setLabel("Actions");
         yAxis.setLabel("Grade in Test");
 
+
         XYChart.Series series = new XYChart.Series();
         for (Point2D chartPoint : chartPoints) {
             XYChart.Data<Double, Double> doubleDoubleData = new XYChart.Data<Double, Double>(chartPoint.getX(), chartPoint.getY());

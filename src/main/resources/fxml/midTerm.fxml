@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="575" prefWidth="800"
+            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+        fx:controller="de.tu.berlin.control.MidTermController">
+  <children>
+    <SplitPane dividerPositions="0.29264214046822745" focusTraversable="true" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <items>
+
+        <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <top>
+                <BorderPane>
+                    <left><Button fx:id="selectAllBtn">Select All</Button></left>
+                    <right><Button fx:id="noneBtn">None</Button></right>
+                </BorderPane>
+            </top>
+          <center>
+            <ListView prefHeight="398.0" prefWidth="172.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="list"/>
+          </center>
+        </BorderPane>
+
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <ScatterChart fx:id="scatterChart" prefHeight="398.0" prefWidth="420.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <xAxis>
+                <NumberAxis side="BOTTOM" label="Click count in the selected categories"/>
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" label="Grade in the Midterm-Exam" fx:id="yAxis" upperBound="100" />
+              </yAxis>
+            </ScatterChart>
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</AnchorPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="de.tu.berlin.control.WeeksController">
+  <children>
+    <StackedBarChart fx:id="barChart" layoutX="25.0" layoutY="10.0" prefHeight="551.0" prefWidth="753.0">
+      <xAxis>
+        <CategoryAxis fx:id="xAxis" label="Day of Week" side="BOTTOM" />
+      </xAxis>
+      <yAxis>
+        <NumberAxis fx:id="yAxis" label="Clicks" side="LEFT" />
+      </yAxis>
+    </StackedBarChart>
+  </children>
+</AnchorPane>

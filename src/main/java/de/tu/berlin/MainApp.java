@@ -30,6 +30,7 @@ public class MainApp extends Application {
         scene.getStylesheets().add(this.getClass().getResource("/styles/styles.css").toExternalForm());
         stage.setScene(scene);
         stage.setTitle("Mootics");
+        stage.setResizable(false);
         stage.show();
     }
 
