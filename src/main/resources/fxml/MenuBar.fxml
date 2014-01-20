@@ -22,7 +22,7 @@
                 <MenuItem mnemonicParsing="false" text="Show Test Chart"  onAction="#gotoShowChart" />
                 <MenuItem mnemonicParsing="false" text="Show Category Activities"  onAction="#gotoCategoryActivities" />
                 <MenuItem mnemonicParsing="false" text="Show Data"  onAction="#gotoShowData" />
-                <MenuItem mnemonicParsing="false" text="Show Grades" onAction="#gotoShowGrades" />
+                <MenuItem mnemonicParsing="false" text="Show Week Usage" onAction="#gotoShowWeekUsage" />
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Manage">

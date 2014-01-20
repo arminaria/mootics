@@ -136,4 +136,8 @@ public class Navigation {
         db.commit();
     }
 
+    public void gotoShowWeekUsage(ActionEvent actionEvent) {
+        String fxmlFile = "/fxml/weeks.fxml";
+        replaceSceneContent(fxmlFile);
+    }
 }

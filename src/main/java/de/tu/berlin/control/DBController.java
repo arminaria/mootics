@@ -13,7 +13,9 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Armin on 27.11.13.
@@ -415,6 +417,45 @@ public class DBController {
 
     }
 
+    public void getWeekUsage() {
+        TypedQuery<Data> query = em.createQuery("SELECT d from Data d", Data.class);
+        List<Data> resultList = query.getResultList();
+            Calendar now = Calendar.getInstance();
+            int i = now.get(Calendar.DAY_OF_WEEK);
+
+        String DayOfWeek = now.getDisplayName(Calendar.DAY_OF_WEEK, 0, Locale.GERMAN);
+        switch (DayOfWeek){
+            case "Mo":
+                System.out.println("blaaaaaaaaaaaaaaaaaa");
+                break;
+
+        }
+        System.out.println(DayOfWeek);
+
+        for (Data data : resultList) {
+            Calendar time = data.getTime();
+        }
+    }
+
+    public int getClicksForDay(int i) {
+        List<Data> allData = getAllData();
+        int count = 0;
+        for (Data data : allData) {
+            if(data.getDayOfWeek()==i) count++;
+        }
+        return count;
+    }
+
+    public Long getClicksForDayOfWeekOn(String dayOfWeek, String category, List<Data> d) {
+        int counter = 0;
+        for (Data data : d) {
+            if(data.getTime().getDisplayName(Calendar.DAY_OF_WEEK,0,Locale.GERMAN).equals(dayOfWeek)
+                    && data.getCategory().equals(category)){
+                counter++;
+            }
+        }
+        return new Long(counter);
+    }
 
 
 

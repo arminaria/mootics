@@ -35,7 +35,16 @@ public class Data implements Serializable {
     private String category;
     @Column
     private String lecture;
+    @Transient
+    private int dayOfWeek;
 
+    public int getDayOfWeek() {
+        return time.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public void setDayOfWeek(int dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
 
     public Long getId() {
         return id;
