@@ -350,7 +350,7 @@ public class DBController {
 
     }
 
-    public List<Point2D> getChartPoints(String test) {
+    public <T extends Filter> List<Point2D>  getChartPoints(String test, Class<T> filter, int timeInSeconds) {
         List<Point2D> results = new ArrayList<Point2D>();
 
         test = test.contains(":") ? test.split(":")[1].trim() : test;
@@ -377,8 +377,21 @@ public class DBController {
                 /**
                  * TEEEEEEEEEEEST
                  */
-                TimeFilter timeFilter = new TimeFilter();
-                allClicks = timeFilter.filter(allClicks);
+                try {
+                    if(filter == TimeFilter.class){
+                        TimeFilter f = new TimeFilter();
+                        allClicks = f.filter(allClicks, timeInSeconds);
+                    }else{
+                        Filter f = (Filter) filter.newInstance();
+                        allClicks = f.filter(allClicks);
+                    }
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (NullPointerException e){
+
+                }
                 /**
                  * TEEEEEEEEEEEST
                  */
@@ -395,8 +408,14 @@ public class DBController {
                 }
 
             }
+
         }
         return results;
+
+    }
+
+     public <T extends Filter> List<Point2D>  getChartPoints(String test, Class<T> filter) {
+        return getChartPoints(test,filter,0);
     }
 
     public List<String> getSelfTests() {
